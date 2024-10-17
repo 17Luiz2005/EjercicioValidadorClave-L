@@ -23,3 +23,9 @@ class ReglaValidacion(ABC):
     def es_valida(self, clave: str)->bool:
         pass
 
+class ReglaValidacioGanimedes(ReglaValidacion):
+    def __init__(self):
+        super().__init__(8)
+
+
+    
