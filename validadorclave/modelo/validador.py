@@ -30,3 +30,16 @@ class ReglaValidacioGanimedes(ReglaValidacion):
     def _contiene_caracter_especial(self, clave: str)->bool:
         especiales = "@_#$%"
         return any(c in especiales for c in clave)
+
+class ReglaValidacionCalisto(ReglaValidacion):
+    def __init__(self):
+        super().__init__(6)
+    
+    def contiene_calisto(self, clave: str):
+        if 'calisto' not in clave:
+            return False
+
+        mayusculas = sum(1 for c in clave if c.isupper())
+        minusculas = sum(1 for c in clave if c.islower())
+
+        return mayusculas > 2 and mayusculas < (mayusculas + minusculas)
